@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Head from "next/head";
+import { Analytics } from "@vercel/analytics/next";
+import Footer from "@/components/Footer";
+import Nav from "@/components/Nav";
+
 
 export const metadata: Metadata = {
   title: "Kyzec Videography",
@@ -13,11 +18,17 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body
-                className={`antialiased`}
-            >
+            <Head>
+                <meta property="og:title" content="The Rock" />
+                <meta property="og:url" content="https://www.jmai.photos" />
+                <meta property="og:image" content="https://www.jmai.photos/whiteicon.png" />
+            </Head>
+            <body className="overflow-x-hidden">
+                <Nav theme="dark" />
+                <Analytics />
                 {children}
+                <Footer />
             </body>
         </html>
-  );
+    );
 }
