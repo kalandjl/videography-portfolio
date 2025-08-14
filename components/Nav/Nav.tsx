@@ -25,9 +25,9 @@ let links = [
 
 // Static portfolio links
 const portfolioLinks = [
-    { title: "Graphics", href: "/portfolio/graphics" },
-    { title: "Sports", href: "/portfolio/sports" },
-    { title: "Portraits", href: "/portfolio/portraits" },
+    { title: "Folder 1", href: "/portfolio/#" },
+    { title: "Folder 2", href: "/portfolio/#" },
+    { title: "Folder 3", href: "/portfolio/#" },
 ];
 
 const Nav: FC<Props> = ({ theme }) => {

@@ -24,9 +24,11 @@ export default function RootLayout({
                 <meta property="og:image" content="https://www.jmai.photos/whiteicon.png" />
             </Head>
             <body className="overflow-x-hidden">
-                <Nav theme="dark" />
+                <Nav  />
                 <Analytics />
-                {children}
+                <main id="content-wrapper" className="min-h-screen">
+                  {children}
+                </main>
                 <Footer />
             </body>
         </html>
