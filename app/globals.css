@@ -43,3 +43,14 @@
 .agency {
   font-family: 'agency', sans-serif;
 }
+
+@font-face {
+  font-family: 'orpheus';
+  src: url('/fonts/Orpheus.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}   
+
+.orpheus {
+  font-family: 'orpheus', sans-serif;
+}

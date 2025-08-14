@@ -1,5 +1,6 @@
 import ActionArrow from "@/components/ActionArrow";
 import InstaVidPromoSection from "@/components/InstaVidPromoSection";
+import YTVidPromoSection from "@/components/YTVidPromoSection";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
@@ -38,10 +39,10 @@ export default function Home() {
                          <ActionArrow navAdjust={false} />
                     </div>                
                 </section>
-                <div className="h-[150vh]"></div>
+                <div className="h-[calc(150vh-86px)]"></div>
 
                 {/* VIDEO PROMO SECTION - Display & Description  */}
-                <InstaVidPromoSection src="https://www.instagram.com/p/DMipXacB_n_/" />
+                <YTVidPromoSection src="https://www.instagram.com/p/DMipXacB_n_/" />
             </main>
         </>
     )
