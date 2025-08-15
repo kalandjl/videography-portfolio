@@ -18,14 +18,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <Head>
-                <meta property="og:title" content="The Rock" />
-                <meta property="og:url" content="https://www.jmai.photos" />
-                <meta property="og:image" content="https://www.jmai.photos/whiteicon.png" />
-            </Head>
             <body className="overflow-x-hidden">
-                <Nav  />
                 <Analytics />
+                <Nav  />
                 <main id="content-wrapper" className="min-h-screen">
                   {children}
                 </main>

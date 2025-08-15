@@ -39,7 +39,7 @@ export default function Home() {
                          <ActionArrow navAdjust={false} />
                     </div>                
                 </section>
-                <div className="h-[calc(150vh-86px)]"></div>
+                <div className="h-[calc(150vh-88px)] -z-20"></div>
 
                 {/* VIDEO PROMO SECTION - Display & Description  */}
                 <YTVidPromoSection src="https://www.instagram.com/p/DMipXacB_n_/" />
