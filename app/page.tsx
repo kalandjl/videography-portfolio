@@ -12,6 +12,10 @@ export default function Home() {
                 {/* HERO SECTION - Autoplay video background */}
                 <section id="hero-section" className="min-h-[150vh] absolute inset-0">
                     <div className="relative w-screen h-[150vh] overflow-x-visible bg-black -z-10">
+                        <video autoPlay muted loop playsInline>
+                            <source src="https://pub-ff478df61150464fa538dc7f3632b3de.r2.dev/example_hero_vid.mp4" type="video/mp4" />
+                            <source src="https://pub-ff478df61150464fa538dc7f3632b3de.r2.dev/example_hero_vid.webm" type="video/webm" />
+                        </video>
                         <video src="/layout/example_hero_vid.mp4" autoPlay loop muted className="absolute inset-0 w-full h-full object-cover" crossOrigin="anonymous" />
                     </div>
                     <div className="absolute inset-0 bg-black opacity-30 -z-10"></div>
