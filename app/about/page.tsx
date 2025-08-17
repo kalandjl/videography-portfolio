@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav"
 import { libertinus } from "../fonts"
 import Image from "next/image"
+import ActionArrow from "@/components/ActionArrow"
 
 const Home = () => {
   return (
@@ -39,6 +40,40 @@ const Home = () => {
           <h1 className={`text-6xl md:text-7xl font-bold ${libertinus.className}`}>
             About Me
           </h1>
+        </div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
+            <ActionArrow navAdjust={false} theme="dark" />
+        </div>     
+      </section>
+
+
+        {/* WAVE DIVIDER */}
+        <div className="relative w-full overflow-hidden leading-none">
+            <svg
+                className="block w-full h-32 text-stone-900"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none"
+                viewBox="0 0 1440 320"
+            >
+                <path
+                fill="currentColor"
+                d="M0,224L60,197.3C120,171,240,117,360,117.3C480,117,600,171,720,181.3C840,192,960,160,1080,133.3C1200,107,1320,85,1380,74.7L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+                />
+            </svg>
+        </div>
+
+
+      {/* BLACK SECTION */}
+      <section id="wave-section" className="bg-stone-900 text-white min-h-screen flex justify-center">
+        <div id="text-wrap" className="px-10 grid place-items-center text-center h-min gap-10">
+            <h2 className={`text-4xl font-bold text-white ${libertinus.className}`}>My Art</h2>
+            <p className={`text-xl text-white ${libertinus.className}`}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+            </p>
+            <p className={`text-xl text-white ${libertinus.className}`}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
         </div>
       </section>
     </>

@@ -4,6 +4,7 @@ import { FC, useEffect, useState } from "react";
 
 interface Props {
     navAdjust?: boolean
+    theme?: "dark" | "light"
 }
 
 const ActionArrow: FC<Props> = (props) => {
@@ -28,7 +29,7 @@ const ActionArrow: FC<Props> = (props) => {
         <div id="arrow" className={`h-${props.navAdjust ? "32" : "20"} flex items-center`}>
             <ArrowDown 
                 onClick={handleArrowClick}
-                stroke="#ffffff" 
+                stroke={`${props.theme === "dark" ? "#000000" : "#ffffff"} `}
                 className={`h-12 w-8 hover:cursor-pointer hover:scale-110 ease-in-out transition ${!hasScrolled ? "animate-bounce" : "opacity-0"}`} 
             />
         </div>
