@@ -22,7 +22,6 @@ const YTVidPromoSection: FC<Props> = (props) => {
                             </p>
                         </div>  
                     </div>
-]
                 </div>
             </section>
         </>

@@ -4,6 +4,7 @@ import { ArrowDown } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 import Nav from "../Nav";
 import CustomImage from "../CustomImage";
+import { libertinus } from "@/app/fonts";
 
 interface Props {
     src: StaticImageData;
@@ -55,7 +56,7 @@ const HeroImageSection: React.FC<Props> = (props) => {
             <section className="z-10 absolute top-0 w-full h-screen">
                 <Nav />
                 <main className="sm:px-32 grid place-items-center relative h-full">
-                    <h1 className="font-bold text-5xl text-white h-64 agency">
+                    <h1 className={`font-bold text-5xl text-white h-64 ${libertinus.className}`}>
                         <span className="h-min relative px-10 py-5 z-10">
                             {props.title}
                             <span className="bg-black opacity-50 inset-0 absolute -z-10"></span>
