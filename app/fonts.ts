@@ -1,4 +1,4 @@
-import { Big_Shoulders, Cormorant, Lato, Nunito, Oswald, Roboto } from 'next/font/google'
+import { Big_Shoulders, Cormorant, Lato, Libertinus_Math, Nunito, Oswald, Roboto } from 'next/font/google'
  
 export const lato = Lato({
   weight: '700',
@@ -35,3 +35,7 @@ export const roboto = Roboto({
   subsets: ['latin'],
 })
 
+export const libertinus = Libertinus_Math({
+  weight: '400',
+  subsets: ['latin'],
+})

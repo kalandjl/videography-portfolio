@@ -11,6 +11,7 @@ import CustomImage from "../CustomImage";
 
 interface Props {
     theme?: "dark" | "light";
+    text?: "dark" | "light";
 }
 
 let links = [
@@ -30,7 +31,7 @@ const portfolioLinks = [
     { title: "Folder 3", href: "/portfolio/#" },
 ];
 
-const Nav: FC<Props> = ({ theme }) => {
+const Nav: FC<Props> = ({ theme, text }) => {
 
     const pathname = usePathname(); // Get current path
     const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
@@ -108,7 +109,7 @@ const Nav: FC<Props> = ({ theme }) => {
                                         onMouseLeave={handleMouseLeave}
                                     >
                                         <Link href={link.href} className="relative">
-                                            <p className={`text-white lg:text-lg font-semibold px-4 py-2 ${link.href != pathname ? "hover:bg-stone-800": ""} group-hover:bg-stone-800 rounded-sm transition ${roboto.className}`}>
+                                            <p className={`${text === "dark" ? "text-black" : "text-white"} lg:text-lg font-semibold px-4 py-2 ${link.href !== pathname ? (text === "dark" ? "hover:bg-stone-200" : "hover:bg-stone-800"): ""} ${text === "dark" ? "group-hover:bg-stone-200" : "group-hover:bg-stone-800"}  rounded-sm transition ${roboto.className}`}>
                                                 {link.title} 
                                             </p>
                                             {link.href === pathname && (
@@ -132,7 +133,7 @@ const Nav: FC<Props> = ({ theme }) => {
                                         <div className={`${roboto.className} z-20 absolute left-0 mt-2 w-32 bg-stone-800 rounded-sm shadow-lg overflow-hidden transition-all duration-200 ${isDropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}>
                                             {shuffledPortfolioLinks.map((item: any, index: number) => (
                                                 <Link key={index} href={item.href}>
-                                                    <p className={`text-white font-semibold px-4 py-2 transition lg:text-xl hover:bg-stone-900
+                                                    <p className={`${text === "dark" ? "text-white" : "text-black"} font-semibold px-4 py-2 transition lg:text-xl ${text === "dark" ? "hover:bg-stone-900" : "hover:bg-stone-900"}
                                                     }`}>
                                                         {item.title}
                                                     </p>
@@ -142,7 +143,7 @@ const Nav: FC<Props> = ({ theme }) => {
                                     </div>
                                 ) : (
                                     <Link href={link.href} key={i} className="border-r border-gray-500 last:border-r-0 lg:px-5 relative">
-                                        <p className={`text-white font-semibold px-4 py-2 ${link.href !== pathname ? "hover:bg-stone-800": ""} rounded-sm transition ${roboto.className} lg:text-xl`}>
+                                        <p className={`${text === "dark" ? "text-black" : "text-white"} font-semibold px-4 py-2 ${link.href !== pathname ? (text === "dark" ? "hover:bg-stone-200" : "hover:bg-stone-800"): ""} rounded-sm transition ${roboto.className} lg:text-xl`}>
                                             {link.title}
                                         </p>
  
@@ -154,7 +155,7 @@ const Nav: FC<Props> = ({ theme }) => {
                                                         whileInView={{ opacity: 1, right: "0" }} // Animate to the original position and opacity 1
                                                         viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
                                                         transition={{ duration: 0.7 }} // Set the duration for the fly-in effect
-                                                        className="h-full bg-stone-200 block absolute top-0 bottom-0 left-0"
+                                                        className={`h-full ${text === "dark" ? "bg-stone-800" : "bg-stone-200"} block absolute top-0 bottom-0 left-0`}
                                                     >
                                                         <span></span>
                                                     </motion.div>

@@ -20,7 +20,6 @@ export default function RootLayout({
         <html lang="en">
             <body className="overflow-x-hidden">
                 <Analytics />
-                <Nav  />
                 <main id="content-wrapper" className="min-h-screen">
                   {children}
                 </main>
