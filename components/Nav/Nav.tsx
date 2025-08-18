@@ -17,9 +17,9 @@ interface Props {
 let links = [
     { title: "Home", href: "/" },
     { title: "About", href: "/about" },
-    { title: "Portfolio", href: "/portfolio" },
-    { title: "Testimonials", href: "/testimonials" },
-    { title: "Services", href: "/services" },
+    // { title: "Portfolio", href: "/portfolio" },
+    // { title: "Testimonials", href: "/testimonials" },
+    // { title: "Services", href: "/services" },
     { title: "Contact", href: "/contact" },
     { title: "FAQ", href: "/FAQ" }
 ];
@@ -139,7 +139,7 @@ const Nav: FC<Props> = ({ theme, text }) => {
                                                     </p>
                                                 </Link>
                                             ))}
-                                        </div>
+                                        </div> 
                                     </div>
                                 ) : (
                                     <Link href={link.href} key={i} className="border-r border-gray-500 last:border-r-0 lg:px-5 relative">
