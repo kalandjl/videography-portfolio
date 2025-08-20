@@ -1,3 +1,4 @@
+import AboutMeSection from "@/components/AboutMeSection";
 import ActionArrow from "@/components/ActionArrow";
 import InstaVidPromoSection from "@/components/InstaVidPromoSection";
 import Nav from "@/components/Nav";
@@ -48,8 +49,11 @@ export default function Home() {
                 </section>
                 <div className="h-[calc(150vh-88px)] -z-20"></div>
 
+                <AboutMeSection />
+
                 {/* VIDEO PROMO SECTION - Display & Description  */}
                 <YTVidPromoSection src="https://www.instagram.com/p/DMipXacB_n_/" />
+
             </main>
         </>
     )
