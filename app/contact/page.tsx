@@ -3,14 +3,14 @@ import Image from "next/image"
 import ExampleHeroImg from "@/public/layout/example_contact_hero_img.jpg"
 import HeroImageSection from "@/components/HeroImageSection"
 import { motion } from "framer-motion"
-import { lato, latoLite, nunito } from "../fonts"
+import { lato, latoLite, libertinus, nunito } from "../fonts"
 import { addDoc, collection, Timestamp } from "firebase/firestore"
 import { firestore } from "@/lib/firebase"
 import { useState } from "react"
 
 const Home = () => {
 
-        const labelClass = `text-xl text-gray-800 font-thin agency`;
+        const labelClass = `text-xl text-gray-800 font-thin ${libertinus.className}`;
     const inputClass = `${nunito.className} text-lg border-b-1 py-3 border-gray-800 w-full outline-none text-gray-800 mb-10 font-thin focus:bg-gray-100`;
 
     let [name, setName] = useState<string | undefined>(undefined);
@@ -63,7 +63,7 @@ const Home = () => {
                                     Let's Work Together
                                 </h1>
                                 <p className={`${latoLite.className}`}>
-                                    Have a project in mind or need more details about my services? Fill out the form below to get in touch. Whether it’s photography, content creation, or social media strategy, I’m here to help bring your vision to life. Let’s create something unforgettable!
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                                 </p>
                             </div>
                         </div>
@@ -112,7 +112,7 @@ const Home = () => {
                                     </div>
                                     <button
                                         type="submit"
-                                        className={`border-1 px-10 py-3 border-gray-900 ${nunito.className} rounded-md hover:bg-gray-300 transition ease-in-out hover:scale-105 hover:cursor-pointer`}
+                                        className={`border-1 px-10 py-3 border-gray-900 ${nunito.className} hover:bg-gray-300 transition ease-in-out hover:cursor-pointer`}
                                     >
                                         Send Message
                                     </button>
