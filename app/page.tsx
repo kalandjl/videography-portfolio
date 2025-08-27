@@ -18,8 +18,8 @@ export default function Home() {
                 <section id="hero-section" className="min-h-[150vh] absolute inset-0">
                     <div className="relative w-screen h-[150vh] overflow-x-visible bg-black -z-10">
                         <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
-                            <source src="https://pub-ff478df61150464fa538dc7f3632b3de.r2.dev/example_hero_vid.mp4" type="video/mp4" />
-                            <source src="https://pub-ff478df61150464fa538dc7f3632b3de.r2.dev/example_hero_vid.webm" type="video/webm" />
+                            <source src="https://pub-ff478df61150464fa538dc7f3632b3de.r2.dev/youtube_Fighting%20Irish%20Championship%20Trailer%202024.webm" type="video/mp4" />
+                            <source src="https://www.youtube.com/embed/9snIh9Bckmg" type="video/webm" />
                         </video>
                     </div>
                     <div className="absolute inset-0 bg-black opacity-30 -z-10"></div>

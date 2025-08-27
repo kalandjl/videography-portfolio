@@ -79,58 +79,7 @@ const Home = () => {
       {/* BARRIER IMAGE SECTION */}
       <BarrierImageSection src={BarrierImage} barrierHeight={300} />
 
-      {/* NEW PORTFOLIO SECTION */}
-      <section className="bg-white py-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className={`text-4xl font-bold text-center mb-16 ${libertinus.className}`}>
-            Featured Projects
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            {/* Card 1 */}
-            <div className="shadow-lg rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300">
-              <Image
-                src="https://source.unsplash.com/random/800x600?film"
-                alt="Project 1"
-                width={800}
-                height={600}
-                className="object-cover w-full h-64"
-              />
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2">Project One</h3>
-                <p className="text-gray-700">A short description of this mock videography project.</p>
-              </div>
-            </div>
-            {/* Card 2 */}
-            <div className="shadow-lg rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300">
-              <Image
-                src="https://source.unsplash.com/random/800x600?video"
-                alt="Project 2"
-                width={800}
-                height={600}
-                className="object-cover w-full h-64"
-              />
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2">Project Two</h3>
-                <p className="text-gray-700">A short description of this mock videography project.</p>
-              </div>
-            </div>
-            {/* Card 3 */}
-            <div className="shadow-lg rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300">
-              <Image
-                src="https://source.unsplash.com/random/800x600?camera"
-                alt="Project 3"
-                width={800}
-                height={600}
-                className="object-cover w-full h-64"
-              />
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2">Project Three</h3>
-                <p className="text-gray-700">A short description of this mock videography project.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
     </>
   );
 };
