@@ -44,14 +44,14 @@ const Nav: FC<Props> = ({ theme, text }) => {
         setVideographyFolders([
           ...new Set(data.videos.map((v: any) => v.folder)),
         ].map((f:any) => ({ 
-          href: `/video/${f}`, 
+          href: `/video/${f.toLowerCase().replace(" ", "_")}`, 
           title: (f.charAt(0).toUpperCase() + f.slice(1).replace(/-/g, ' ')).replace("_", " ")
         })));
 
         setPhotographyFolders([
           ...new Set(data.photos.map((p: any) => p.folder)),
         ].map((f:any) => ({ 
-          href: `/photos/${f}`, 
+          href: `/photo/${f.toLowerCase().replace(" ", "_")}`, 
           title: f.charAt(0).toUpperCase() + f.slice(1).replace(/-/g, ' ')
         })));
       } catch (err) {

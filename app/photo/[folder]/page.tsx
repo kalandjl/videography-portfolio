@@ -1,18 +1,17 @@
-// app/[folder]/page.tsx
 import Nav from "@/components/Nav";
-import { getEmbedUrl } from "@/lib/str";
+import { getDriveImageUrl } from "@/lib/str";
 import { google } from "googleapis";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
-type VideoRow = {
+type PhotoRow = {
   folder: string;
   subfolder?: string;
   title: string;
   url: string;
 };
 
-// Fetch from Google Sheets
-async function fetchSheetData(): Promise<VideoRow[]> {
+async function fetchSheetData(): Promise<PhotoRow[]> {
   const auth = new google.auth.GoogleAuth({
     credentials: {
       client_email: process.env.GOOGLE_CLIENT_EMAIL,
@@ -25,11 +24,10 @@ async function fetchSheetData(): Promise<VideoRow[]> {
 
   const res = await sheets.spreadsheets.values.get({
     spreadsheetId: process.env.SHEET_ID,
-    range: "VIDEOS!A:D", // Folder | Subfolder | URL | Title
+    range: "PHOTOS!A:D", // Folder | Subfolder | URL | Title
   });
 
   const rows = res.data.values ?? [];
-
   return rows.slice(1).map((r) => ({
     folder: slugify(r[0]),
     subfolder: r[1] || "",
@@ -38,7 +36,6 @@ async function fetchSheetData(): Promise<VideoRow[]> {
   }));
 }
 
-// Slugify helper
 function slugify(name: string): string {
   return name
     .toLowerCase()
@@ -46,62 +43,69 @@ function slugify(name: string): string {
     .replace(/[^\w\-]+/g, "");
 }
 
-// Generate static routes from folder names
 export async function generateStaticParams() {
   const data = await fetchSheetData();
   const folders = Array.from(new Set(data.map((d) => d.folder)));
   return folders.map((folder) => ({ folder }));
 }
 
-// Page
-export default async function VideoFolderPage({
+export default async function PhotoFolderPage({
   params,
 }: {
   params: { folder: string };
 }) {
   const data = await fetchSheetData();
-  const videos = data.filter((d) => d.folder === params.folder);
+  const photos = data.filter((d) => d.folder === params.folder);
 
-  if (videos.length === 0) {
+  if (photos.length === 0) {
     notFound();
   }
 
-  // Group videos by subfolder
-  const groups: Record<string, VideoRow[]> = {};
-  for (const v of videos) {
-    const key = v.subfolder || "Misc";
+  // Group photos by subfolder
+  const groups: Record<string, PhotoRow[]> = {};
+  for (const p of photos) {
+    const key = p.subfolder || "Misc";
     if (!groups[key]) groups[key] = [];
-    groups[key].push(v);
+    groups[key].push(p);
   }
 
   return (
     <>
       <Nav theme="dark" />
-      <section id="embed-vids" className="p-6">
+      <section className="p-6">
         <h1 className="text-3xl font-bold mb-8">{params.folder}</h1>
 
-        {Object.entries(groups).map(([subfolder, vids]) => (
-          <div key={subfolder} className="mb-10">
+        {Object.entries(groups).map(([subfolder, phs]) => (
+          <div key={subfolder} className="mb-12">
             <h2 className="text-2xl font-semibold mb-4">{subfolder}</h2>
-            <div className="grid grid-cols-2 gap-6 ">
-              {vids.map((v, i) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {phs.map((p, i) =>( 
+                <>
+                {
+                i < 50 ?
                 <div
                   key={i}
                   className="rounded-xl overflow-hidden shadow-lg bg-white"
                 >
-                  <iframe
-                    src={getEmbedUrl(v.url)}
-                    title={v.title || `Video ${i + 1}`}
-                    width="100%"
-                    height="300"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
+                  <div className="relative w-full h-64">
+                    <Image
+                      src={getDriveImageUrl(p.url)}
+                      alt={p.title || `Photo ${i + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="p-4">
-                    <p className="font-medium">{v.title || "Untitled"}</p>
+                    <p className="font-medium">{p.title || "Untitled"}</p>
                   </div>
                 </div>
-              ))}
+                :
+                <>
+                </>
+              }
+              </>
+              )
+              )}
             </div>
           </div>
         ))}
