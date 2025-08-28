@@ -4,6 +4,7 @@ import Image from "next/image";
 import ActionArrow from "@/components/ActionArrow";
 import BarrierImageSection from "@/components/BarrierImageSection";
 import BarrierImage from "@/public/layout/barrier_image.jpg";
+import Link from "next/link";
 
 const Home = () => {
   return (
@@ -79,6 +80,61 @@ const Home = () => {
       {/* BARRIER IMAGE SECTION */}
       <BarrierImageSection src={BarrierImage} barrierHeight={300} />
 
+
+      {/* PHOTO/VIDEO SECTION */}
+      <section className="bg-white text-stone-900 py-24 px-10">
+        <div className="max-w-6xl mx-auto text-center mb-16">
+          <h2 className={`text-4xl font-bold mb-6 ${libertinus.className}`}>
+            Videography & Photography
+          </h2>
+          <p className="text-lg max-w-3xl mx-auto text-stone-600">
+            Two forms of storytelling, one vision — explore the moving images of videography
+            or the still moments of photography.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+          {/* VIDEOS CARD */}
+          <Link
+            href="/video"
+            className="group relative rounded-2xl overflow-hidden shadow-lg border border-stone-200 hover:shadow-2xl transition-all duration-500"
+          >
+            <div className="relative h-72 w-full">
+              <Image
+                src="/layout/videography-img.jpg" // replace with your own preview
+                alt="Videos"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <h3 className="text-3xl font-bold text-white drop-shadow-lg">
+                  Videos
+                </h3>
+              </div>
+            </div>
+          </Link>
+
+          {/* PHOTOS CARD */}
+          <Link
+            href="/photo"
+            className="group relative rounded-2xl overflow-hidden shadow-lg border border-stone-200 hover:shadow-2xl transition-all duration-500"
+          >
+            <div className="relative h-72 w-full">
+              <Image
+                src="/layout/photography-img.jpg" // replace with your own preview
+                alt="Photos"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <h3 className="text-3xl font-bold text-white drop-shadow-lg">
+                  Photos
+                </h3>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
 
     </>
   );

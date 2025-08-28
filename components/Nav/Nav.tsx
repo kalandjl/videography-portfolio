@@ -37,32 +37,57 @@ const Nav: FC<Props> = ({ theme, text }) => {
 
   useEffect(() => {
     async function loadData() {
+      // Try localStorage first
+      const cached = localStorage.getItem("portfolio");
+      if (cached) {
+        try {
+          const data = JSON.parse(cached);
+          setVideographyFolders(data.videographyFolders || []);
+          setPhotographyFolders(data.photographyFolders || []);
+        } catch {
+          localStorage.removeItem("portfolio");
+        }
+      }
+
+      // Always refresh in background
       try {
         const res = await fetch("/api/portfolio");
         const data = await res.json();
 
-        setVideographyFolders([
+        const videoFolders = [
           ...new Set(data.videos.map((v: any) => v.folder)),
-        ].map((f:any) => ({ 
-          href: `/video/${f.toLowerCase().replace(" ", "_")}`, 
-          title: (f.charAt(0).toUpperCase() + f.slice(1).replace(/-/g, ' ')).replace("_", " ")
-        })));
+        ].map((f: any) => ({
+          href: `/video/${f.toLowerCase().replace(" ", "_")}`,
+          title: (f.charAt(0).toUpperCase() + f.slice(1).replace(/-/g, " ")).replace("_", " "),
+        }));
 
-        setPhotographyFolders([
+        const photoFolders = [
           ...new Set(data.photos.map((p: any) => p.folder)),
-        ].map((f:any) => ({ 
-          href: `/photo/${f.toLowerCase().replace(" ", "_")}`, 
-          title: f.charAt(0).toUpperCase() + f.slice(1).replace(/-/g, ' ')
-        })));
+        ].map((f: any) => ({
+          href: `/photo/${f.toLowerCase().replace(" ", "_")}`,
+          title: f.charAt(0).toUpperCase() + f.slice(1).replace(/-/g, " "),
+        }));
+
+        setVideographyFolders(videoFolders);
+        setPhotographyFolders(photoFolders);
+
+        // Save cache
+        localStorage.setItem(
+          "portfolio",
+          JSON.stringify({
+            videographyFolders: videoFolders,
+            photographyFolders: photoFolders,
+          })
+        );
       } catch (err) {
         console.error("Failed to load portfolio data", err);
       }
     }
+
     loadData();
   }, []);
 
   const handleDropdownEnter = (linkTitle: string) => {
-
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
     }
@@ -70,7 +95,6 @@ const Nav: FC<Props> = ({ theme, text }) => {
   };
 
   const handleDropdownLeave = () => {
-    
     dropdownTimeoutRef.current = setTimeout(() => {
       setActiveDropdown(null);
     }, 150);
@@ -124,8 +148,12 @@ const Nav: FC<Props> = ({ theme, text }) => {
                   <div
                     key={i}
                     className="relative border-r border-gray-500 lg:px-3 last:border-r-0"
-                    onMouseEnter={() => link.hasDropdown && handleDropdownEnter(link.title)}
-                    onMouseLeave={() => link.hasDropdown && handleDropdownLeave()}
+                    onMouseEnter={() =>
+                      link.hasDropdown && handleDropdownEnter(link.title)
+                    }
+                    onMouseLeave={() =>
+                      link.hasDropdown && handleDropdownLeave()
+                    }
                   >
                     <Link href={link.href} className="block">
                       <div
@@ -146,8 +174,8 @@ const Nav: FC<Props> = ({ theme, text }) => {
                       >
                         <span>{link.title}</span>
                         {link.hasDropdown && (
-                          <ChevronDown 
-                            size={16} 
+                          <ChevronDown
+                            size={16}
                             className={`transition-transform duration-200 ${
                               activeDropdown === link.title ? "rotate-180" : ""
                             }`}
@@ -178,7 +206,7 @@ const Nav: FC<Props> = ({ theme, text }) => {
                                 </Link>
                               ))}
                             </div>
-                            
+
                             {/* Arrow pointer */}
                             <div className="absolute -top-1 left-6 w-2 h-2 bg-white dark:bg-stone-800 border-l border-t border-stone-200 dark:border-stone-700 rotate-45"></div>
                           </motion.div>
@@ -233,14 +261,21 @@ const Nav: FC<Props> = ({ theme, text }) => {
                   {links.map((link, i) => {
                     const dropdownItems = getDropdownItems(link.title);
                     const isActive = isLinkActive(link);
-                    
+
                     return (
                       <div key={i} className="space-y-1">
-                        <Link href={link.href} onClick={() => setSidebarOpen(false)}>
+                        <Link
+                          href={link.href}
+                          onClick={() => setSidebarOpen(false)}
+                        >
                           <div
                             className={`
                               flex items-center justify-between px-4 py-3 rounded-lg transition-colors
-                              ${isActive ? "bg-stone-800 text-stone-100" : "text-stone-300 hover:bg-stone-800 hover:text-white"}
+                              ${
+                                isActive
+                                  ? "bg-stone-800 text-stone-100"
+                                  : "text-stone-300 hover:bg-stone-800 hover:text-white"
+                              }
                               ${lato.className} text-lg font-medium
                             `}
                           >
@@ -250,12 +285,16 @@ const Nav: FC<Props> = ({ theme, text }) => {
                             )}
                           </div>
                         </Link>
-                        
+
                         {/* Mobile Dropdown Items */}
                         {link.hasDropdown && dropdownItems.length > 0 && (
                           <div className="ml-4 space-y-1">
                             {dropdownItems.map((item, idx) => (
-                              <Link key={idx} href={item.href} onClick={() => setSidebarOpen(false)}>
+                              <Link
+                                key={idx}
+                                href={item.href}
+                                onClick={() => setSidebarOpen(false)}
+                              >
                                 <div className="px-4 py-2 text-stone-400 hover:text-stone-200 hover:bg-stone-800 rounded-lg transition-colors text-base">
                                   {item.title}
                                 </div>
