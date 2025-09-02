@@ -21,8 +21,8 @@ interface DropdownItem {
 const links = [
   { title: "Home", href: "/" },
   { title: "About", href: "/about" },
-  { title: "Videography", href: "/videos", hasDropdown: true },
-  { title: "Photography", href: "/photos", hasDropdown: true },
+  { title: "Videography", href: "/video", hasDropdown: true },
+  { title: "Photography", href: "/photo", hasDropdown: true },
   { title: "Contact", href: "/contact" },
 ];
 

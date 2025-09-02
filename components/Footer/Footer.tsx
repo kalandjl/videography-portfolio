@@ -38,7 +38,7 @@ const Footer: FC<Props> = (props) => {
                 <div className="grid place-items-center sm:flex mt-5">
                     <div id="icons" className="flex gap-3">
                         <Link 
-                            href="https://www.instagram.com/kyzecurrutia" 
+                            href="https://www.instagram.com/krushotit" 
                             target="_blank" 
                             rel="noopener noreferrer" 
                             aria-label="Instagram Profile"

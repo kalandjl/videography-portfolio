@@ -1,7 +1,10 @@
 import AboutMeSection from "@/components/AboutMeSection";
 import ActionArrow from "@/components/ActionArrow";
+import ContactSection from "@/components/ContactSection";
 import InstaVidPromoSection from "@/components/InstaVidPromoSection";
 import Nav from "@/components/Nav";
+import PhotographyPromoSection from "@/components/PhotographyPromoSection";
+import VideographyPromoSection from "@/components/VideographyPromoSection";
 import YTVidPromoSection from "@/components/YTVidPromoSection";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -54,6 +57,11 @@ export default function Home() {
                 {/* VIDEO PROMO SECTION - Display & Description  */}
                 <YTVidPromoSection src="https://www.instagram.com/p/DMipXacB_n_/" />
 
+                <VideographyPromoSection />
+
+                <ContactSection />
+
+                <PhotographyPromoSection />
             </main>
         </>
     )

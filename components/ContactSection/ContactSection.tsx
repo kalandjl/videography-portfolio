@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FC } from "react";
-import HeroImage from "@/public/pictures/_DSC6815.jpg"
+import HeroImage from "@/public/layout/canvas image 2.jpg"
 import { lato, latoLite } from "@/app/fonts";
 import Link from "next/link";
 import CustomImage from "../CustomImage";
@@ -15,13 +15,13 @@ const ContactSection: FC<Props> = (props) => {
 
     return (
         <>
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 50 }} // Start below the view (50px down) and hidden (opacity 0)
             whileInView={{ opacity: 1, y: 0 }} // Animate to the original position and opacity 1
             viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
             transition={{ duration: 1 }} // Set the duration for the fly-in effect
             className="relative overflow-hidden rounded-lg shadow-lg"
-            >
+            > */}
             <section id="contact-section" className="md:h-128 sm:h-96 h-64">
                 <div id="image-wrap" className="overflow-hidden h-full relative">
 
@@ -46,7 +46,7 @@ const ContactSection: FC<Props> = (props) => {
                     </div>
                 </div>
             </section>
-            </motion.div>
+            {/* </motion.div> */}
         </>
     )
 }
