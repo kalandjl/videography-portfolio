@@ -57,10 +57,11 @@ export async function generateStaticParams() {
 export default async function VideoFolderPage({
   params,
 }: {
-  params: { folder: string };
+  params: Promise<{ folder: string }>;
 }) {
   const data = await fetchSheetData();
-  const videos = data.filter((d) => d.folder === params.folder);
+  const folder = (await params).folder
+  const videos = data.filter((d) => d.folder === folder);
 
   if (videos.length === 0) {
     notFound();
@@ -78,7 +79,7 @@ export default async function VideoFolderPage({
     <>
       <Nav theme="dark" />
       <section id="embed-vids" className="p-6">
-        <h1 className="text-3xl font-bold mb-8">{params.folder}</h1>
+        <h1 className="text-3xl font-bold mb-8">{folder}</h1>
 
         {Object.entries(groups).map(([subfolder, vids]) => (
           <div key={subfolder} className="mb-10">

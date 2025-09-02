@@ -52,10 +52,11 @@ export async function generateStaticParams() {
 export default async function PhotoFolderPage({
   params,
 }: {
-  params: { folder: string };
+  params: Promise<{ folder: string }>;
 }) {
   const data = await fetchSheetData();
-  const photos = data.filter((d) => d.folder === params.folder);
+  const folder = (await params).folder
+  const photos = data.filter((d) => d.folder === folder);
 
   if (photos.length === 0) {
     notFound();
@@ -73,7 +74,7 @@ export default async function PhotoFolderPage({
     <>
       <Nav theme="dark" />
       <section className="p-6">
-        <h1 className="text-3xl font-bold mb-8">{params.folder}</h1>
+        <h1 className="text-3xl font-bold mb-8">{folder}</h1>
 
         {Object.entries(groups).map(([subfolder, phs]) => (
           <div key={subfolder} className="mb-12">
