@@ -1,0 +1,29 @@
+[debug] [2025-09-02T21:45:15.044Z] ----------------------------------------------------------------------
+[debug] [2025-09-02T21:45:15.046Z] Command:       /Users/kalanjarvis-loewen/.nvm/versions/node/v22.11.0/bin/node /Users/kalanjarvis-loewen/.nvm/versions/node/v22.11.0/bin/firebase deploy --only functions
+[debug] [2025-09-02T21:45:15.046Z] CLI Version:   13.27.0
+[debug] [2025-09-02T21:45:15.046Z] Platform:      darwin
+[debug] [2025-09-02T21:45:15.047Z] Node Version:  v22.11.0
+[debug] [2025-09-02T21:45:15.047Z] Time:          Tue Sep 02 2025 17:45:15 GMT-0400 (Eastern Daylight Time)
+[debug] [2025-09-02T21:45:15.047Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-09-02T21:45:15.094Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-02T21:45:15.095Z] > authorizing via signed-in user (karj5903@gmail.com)
+[debug] [2025-09-02T21:45:15.095Z] [iam] checking project videography-portfolio-2b971 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2025-09-02T21:45:15.095Z] Checked if tokens are valid: true, expires at: 1756852954399
+[debug] [2025-09-02T21:45:15.095Z] Checked if tokens are valid: true, expires at: 1756852954399
+[debug] [2025-09-02T21:45:15.096Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/videography-portfolio-2b971:testIamPermissions [none]
+[debug] [2025-09-02T21:45:15.096Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/videography-portfolio-2b971:testIamPermissions x-goog-quota-user=projects/videography-portfolio-2b971
+[debug] [2025-09-02T21:45:15.096Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/videography-portfolio-2b971:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-09-02T21:45:18.379Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/videography-portfolio-2b971:testIamPermissions 200
+[debug] [2025-09-02T21:45:18.379Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/videography-portfolio-2b971:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2025-09-02T21:45:18.379Z] Checked if tokens are valid: true, expires at: 1756852954399
+[debug] [2025-09-02T21:45:18.379Z] Checked if tokens are valid: true, expires at: 1756852954399
+[debug] [2025-09-02T21:45:18.380Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/videography-portfolio-2b971/serviceAccounts/videography-portfolio-2b971@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2025-09-02T21:45:18.380Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/videography-portfolio-2b971/serviceAccounts/videography-portfolio-2b971@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2025-09-02T21:45:21.671Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/videography-portfolio-2b971/serviceAccounts/videography-portfolio-2b971@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2025-09-02T21:45:21.671Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/videography-portfolio-2b971/serviceAccounts/videography-portfolio-2b971@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'videography-portfolio-2b971'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build
