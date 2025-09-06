@@ -37,10 +37,15 @@ async function fetchSheetData(): Promise<PhotoRow[]> {
 }
 
 function slugify(name: string): string {
-  return name
-    .toLowerCase()
+  
+  const folder = name
+  .toLowerCase()
     .replace(/\s+/g, "_")
-    .replace(/[^\w\-]+/g, "");
+    .replace(/[^\w\-]+/g, "")
+    .replace("_", " ")
+
+  console.log(folder)
+  return folder
 }
 
 export async function generateStaticParams() {
@@ -55,7 +60,7 @@ export default async function PhotoFolderPage({
   params: Promise<{ folder: string }>;
 }) {
   const data = await fetchSheetData();
-  const folder = (await params).folder
+  const folder = (await params).folder.replace("-", " ")
   const photos = data.filter((d) => d.folder === folder);
 
   if (photos.length === 0) {

@@ -40,10 +40,15 @@ async function fetchSheetData(): Promise<VideoRow[]> {
 
 // Slugify helper
 function slugify(name: string): string {
-  return name
-    .toLowerCase()
+  
+  const folder = name
+  .toLowerCase()
     .replace(/\s+/g, "_")
-    .replace(/[^\w\-]+/g, "");
+    .replace(/[^\w\-]+/g, "")
+    .replace("_", " ")
+
+  console.log(folder)
+  return folder
 }
 
 // Generate static routes from folder names

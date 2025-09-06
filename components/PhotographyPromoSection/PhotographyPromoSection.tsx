@@ -17,17 +17,32 @@ let folders: Folder[] = [
     imageSrc: "street-promo.jpg",
   },
   {
-    name: "Portraits",
+    name: "Adventure",
     href: "/photo/portraits",
     imageSrc: "portraits-promo.jpg",
   },
   {
-    name: "Nature",
+    name: "Travel",
     href: "/photo/nature",
     imageSrc: "nature-promo.jpg",
   },
   {
-    name: "Events",
+    name: "Street",
+    href: "/photo/events",
+    imageSrc: "events-promo.jpg",
+  },
+    {
+    name: "Grad Photos",
+    href: "/photo/events",
+    imageSrc: "events-promo.jpg",
+  },
+    {
+    name: "Street",
+    href: "/photo/events",
+    imageSrc: "events-promo.jpg",
+  },
+    {
+    name: "Street",
     href: "/photo/events",
     imageSrc: "events-promo.jpg",
   },
