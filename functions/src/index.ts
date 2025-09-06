@@ -29,13 +29,7 @@
 //           body: 
 //           `New message from "${messageData.name}", "${messageData.email}" Message: "${messageData.message}"`
 //         });
-//         await smsRef.set({
-//           ...messageData,
-//           createdAt: admin.firestore.FieldValue.serverTimestamp(),
-//           to: "",
-//           body: 
-//           `New message from "${messageData.name}", "${messageData.email}"Message: "${messageData.message}"`
-//         });
+
 
 //         logger.info(
 //           `Document added to 'sms' collection with ID: ${smsRef.id}`
